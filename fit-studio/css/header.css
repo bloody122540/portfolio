@@ -1,0 +1,28 @@
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #d3cbd9;
+}
+
+.header__phone {
+    text-align: right;
+}
+
+.header__phone-numbers {
+    font-weight: 500;
+    font-size: 18px;
+    color: #2c332f;
+    transition: color 0.2s;
+}
+
+.header__phone-desc {
+    margin-bottom: 8px;
+}
+
+.header__phone-numbers:hover {
+    color: #3596ED
+}
