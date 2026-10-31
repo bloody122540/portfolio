@@ -1,0 +1,16 @@
+:root {
+    --font-main: 'Montserrat', 'DM Sans', sans-serif;
+    --font-title: 'Playfair Display', 'Source Serif Pro', serif;
+
+    --color-primary: #754043;
+    --color-text: #171614;
+    --color-text-light: #37423d;
+    --color-beige: #9a8f7f;
+    --color-bg: #f4f3f1;
+    --color-dark: #171614;
+    --color-line: rgba(154, 143, 127, 0.3);
+
+    --header-height: 111px;
+    --gap: clamp(16px, 4vw, 60px);
+    --section-padding: clamp(64px, 9vw, 120px);
+}

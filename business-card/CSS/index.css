@@ -1,0 +1,13 @@
+@import "./base/fonts.css";
+@import "./base/vars.css";
+@import "./base/global.css";
+
+@import "./Blocks/header.css";
+@import "./Blocks/about.css";
+@import "./Blocks/card.css";
+@import "./Blocks/popup.css";
+@import "./Blocks/counters.css";
+@import "./Blocks/portfolio.css";
+@import "./Blocks/prices.css";
+@import "./Blocks/footer.css";
+@import "./Blocks/tg-button.css";

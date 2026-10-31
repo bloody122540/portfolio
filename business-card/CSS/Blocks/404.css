@@ -1,0 +1,19 @@
+.error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.error__code {
+    font-family: var(--font-title);
+    font-size: clamp(120px, 22vw, 240px);
+    line-height: 1;
+    color: var(--color-primary);
+}
+
+.error__text {
+    margin-bottom: 30px;
+    font-size: 18px;
+    color: var(--color-text-light);
+}
