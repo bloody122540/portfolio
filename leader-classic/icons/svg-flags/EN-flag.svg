@@ -1,0 +1,21 @@
+<svg width="21" height="21" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <clipPath id="clip">
+                <circle cx="10.5" cy="10.5" r="10.5" />
+            </clipPath>
+        </defs>
+        <g clip-path="url(#clip)">
+            <!-- Красные и белые полосы -->
+            <rect width="21" height="21" fill="white" />
+            <rect y="0" width="21" height="1.5" fill="#B22234" />
+            <rect y="3" width="21" height="1.5" fill="#B22234" />
+            <rect y="6" width="21" height="1.5" fill="#B22234" />
+            <rect y="9" width="21" height="1.5" fill="#B22234" />
+            <rect y="12" width="21" height="1.5" fill="#B22234" />
+            <rect y="15" width="21" height="1.5" fill="#B22234" />
+            <rect y="18" width="21" height="1.5" fill="#B22234" />
+            <!-- Синий кантон -->
+            <rect width="9" height="7.5" fill="#3C3B6E" />
+            <!-- Звёзды не рисую – в 21px их не видно -->
+        </g>
+    </svg>

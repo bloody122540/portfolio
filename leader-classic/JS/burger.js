@@ -1,0 +1,179 @@
+export default class BurgerMenu {
+	constructor(config, headerFixedInstance = null) {
+		this.config = config;
+		this.burgerButton = document.querySelector(`.${this.config.BURGER}`);
+		this.burgerMenu = document.querySelector(`.${this.config.HEADER_MENU}`);
+		this.body = document.querySelector(`.${this.config.PAGE_BODY}`);
+		this.headerFixedInstance = headerFixedInstance;
+		this.main = document.querySelector(`.${this.config.MAIN}`);
+
+		this.logoWrapper = document.querySelector('.header__logo-wrapper');
+		this.selectWrapper = document.querySelector('.header__select-wrapper');
+
+		if (!this.burgerButton || !this.burgerMenu || !this.body) {
+			throw new Error('Required DOM elements are missing.');
+		}
+
+		this.isMobileView = window.innerWidth <= this.config.BREAKPOINT;
+
+		this.onBurgerClick = this.onBurgerClick.bind(this);
+		this.onBodyClick = this.onBodyClick.bind(this);
+		this.handleTouchStart = this.handleTouchStart.bind(this);
+		this.handleTouchMove = this.handleTouchMove.bind(this);
+		this.handleTouchEnd = this.handleTouchEnd.bind(this);
+		this.onWindowResize = this.onWindowResize.bind(this);
+
+		this.manageEvents();
+		window.addEventListener('resize', this.onWindowResize);
+	}
+
+	manageEvents() {
+		if (this.isMobileView) {
+			this.initEvents();
+		} else {
+			this.removeEvents();
+			this.hideBurgerMenu();
+		}
+	}
+
+	initEvents() {
+		this.burgerButton.addEventListener('click', this.onBurgerClick);
+		this.body.addEventListener('click', this.onBodyClick);
+
+		this.body.addEventListener('touchstart', this.handleTouchStart);
+		this.body.addEventListener('touchmove', this.handleTouchMove);
+		this.body.addEventListener('touchend', this.handleTouchEnd);
+	}
+
+	removeEvents() {
+		this.burgerButton.removeEventListener('click', this.onBurgerClick);
+		this.body.removeEventListener('click', this.onBodyClick);
+
+		this.body.removeEventListener('touchstart', this.handleTouchStart);
+		this.body.removeEventListener('touchmove', this.handleTouchMove);
+		this.body.removeEventListener('touchend', this.handleTouchEnd);
+	}
+
+	onWindowResize() {
+		const isNowMobileView = window.innerWidth <= this.config.BREAKPOINT;
+
+		if (this.isMobileView !== isNowMobileView) {
+			this.isMobileView = isNowMobileView;
+			this.manageEvents();
+		}
+	}
+
+	onBurgerClick() {
+		document.querySelector('.burger');
+		const isOpen = this.burgerButton.classList.toggle(this.config.BURGER_OPEN);
+		this.burgerButton.ariaLabel = isOpen
+			? this.config.lABEL.CLOSE
+			: this.config.lABEL.OPEN;
+		this.burgerButton.ariaExpanded = isOpen;
+		this.burgerMenu.classList.toggle(this.config.HEADER_MENU_OPEN, isOpen);
+		this.body.classList.toggle(this.config.PAGE_BODY_NO_SCROLL, isOpen);
+
+		if (isOpen) {
+			this.moveElementsToMenu();
+		} else {
+			this.moveElementsBack();
+		}
+
+		if (this.main) {
+			this.main.style.pointerEvents = isOpen ? 'none' : '';
+		}
+
+		if (this.headerFixedInstance) {
+			if (isOpen) {
+				this.headerFixedInstance.removeFixedClass();
+			} else {
+				this.headerFixedInstance.updateFixedClass();
+			}
+		}
+	}
+
+	moveElementsToMenu() {
+		const list = this.burgerMenu.querySelector('.menu__list');
+		if (this.logoWrapper && !this.burgerMenu.contains(this.logoWrapper)) {
+			this.burgerMenu.insertBefore(this.logoWrapper, list);
+		}
+		if (this.selectWrapper && !this.burgerMenu.contains(this.selectWrapper)) {
+			this.burgerMenu.insertBefore(this.selectWrapper, list);
+		}
+	}
+
+	moveElementsBack() {
+			const container = document.querySelector('.header__container');
+			if (this.logoWrapper && this.burgerMenu.contains(this.logoWrapper)) {
+				container.insertBefore(this.logoWrapper, this.burgerMenu);
+			}
+			if (this.selectWrapper && this.burgerMenu.contains(this.selectWrapper)) {
+				container.insertBefore(this.selectWrapper, this.burgerMenu);
+			}
+	}
+
+	hideBurgerMenu() {
+		const wasOpen = this.isBurgerMenuOpen();
+		this.burgerButton.classList.remove(this.config.BURGER_OPEN);
+		this.burgerButton.ariaLabel = this.config.lABEL.OPEN;
+		this.burgerButton.ariaExpanded = false;
+		this.burgerMenu.classList.remove(this.config.HEADER_MENU_OPEN);
+		this.body.classList.remove(this.config.PAGE_BODY_NO_SCROLL);
+
+		if (this.main) {
+			this.main.style.pointerEvents = '';
+		}
+
+		this.moveElementsBack();
+
+		if (wasOpen && this.headerFixedInstance) {
+			this.headerFixedInstance.updateFixedClass();
+		}
+	}
+
+	isBurgerMenuOpen() {
+		return this.burgerMenu.classList.contains(this.config.HEADER_MENU_OPEN);
+	}
+
+	onBodyClick(event) {
+		const target = event.target;
+		const isLinkInMenu = Boolean(target.closest(`.${this.config.MENU_LINK}`));
+		const isMenuOpen = this.isBurgerMenuOpen();
+		const isClickOutsideMenu =
+			!target.closest(`.${this.config.HEADER_MENU}`) &&
+			!target.closest(`.${this.config.BURGER}`);
+
+		if (
+			(isLinkInMenu && window.innerWidth <= this.config.BREAKPOINT) ||
+			(isMenuOpen && isClickOutsideMenu)
+		) {
+			this.hideBurgerMenu();
+		}
+	}
+
+	handleTouchStart(event) {
+		if (!this.isBurgerMenuOpen()) return;
+		this.touchStartX = event.changedTouches[0].screenX;
+		this.burgerMenu.style.transition = 'none';
+	}
+
+	handleTouchMove(event) {
+		if (!this.isBurgerMenuOpen()) return;
+		const currentX = event.changedTouches[0].screenX;
+		const translateX = currentX - this.touchStartX; 
+		this.burgerMenu.style.left = `${translateX}px`;
+	}
+
+	handleTouchEnd(event) {
+		if (!this.isBurgerMenuOpen()) return;
+		const touchEndX = event.changedTouches[0].screenX;
+		const swipeDistance = touchEndX - this.touchStartX;
+
+		this.burgerMenu.style.transition = '';
+		this.burgerMenu.style.left = '';
+
+		if (swipeDistance < -70) {
+			this.hideBurgerMenu();
+		}
+	}
+}

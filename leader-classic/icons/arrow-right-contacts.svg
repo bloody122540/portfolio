@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+    <symbol id="circle" viewBox="0 0 9 9" fill="none">
+        <circle cx="4.5" cy="4.5" r="3.5" stroke="white" stroke-width="2" fill="currentColor" />
+    </symbol>
+
+    <symbol id="arrow" viewBox="0 0 10 11" fill="none">
+        <path
+            d="M-5.24697e-05 8.18175C-5.25915e-05 9.72135 1.66661 10.6836 2.99995 9.9138L8.35059 6.82461C9.68392 6.05481 9.68392 4.13031 8.35058 3.36051L2.99994 0.271314C1.66661 -0.498486 -5.26213e-05 0.463766 -5.25207e-05 2.00337L-5.24697e-05 8.18175Z"
+            fill="currentColor" />
+    </symbol>
+</svg>

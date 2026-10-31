@@ -1,0 +1,197 @@
+.faq__inner {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    text-align: start;
+    gap: clamp(30px, 1rem + 3vw, 80px);
+    margin-bottom: clamp(100px, 4rem + 6vw, 200px);
+}
+
+@media (width<=1260px) {
+    .faq__inner {
+        grid-template-columns: 1fr;
+    }
+}
+
+.faq__questions {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+@media (width > 1260px) {
+    .faq__questions {
+        position: sticky;
+        top: calc(var(--header-height) + 20px);
+        align-self: start;
+        min-height: 420px;
+    }
+}
+
+@media (width <=1260px) {
+    .faq__questions {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+.questions__title {
+    line-height: 117%;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.questions__text {
+    font-weight: 400;
+    font-size: clamp(14px, 0.754rem + 0.52vw, 22px);
+    line-height: 159%;
+    color: var(--white-color);
+}
+
+.faq__questions .questions__text {
+    margin-bottom: clamp(20px, 0.72rem + 2.26vw, 40px);
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.questions__button {
+    margin-top: auto;
+    text-align: center;
+}
+
+.faq__menu {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    transition: border-color 0.4s;
+}
+
+.faq__menu:first-child {
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.faq__menu[open] {
+    border-bottom-color: rgba(98, 186, 127, 0.35);
+}
+
+@supports selector(::details-content) {
+    :root {
+        interpolate-size: allow-keywords;
+    }
+
+    .faq__menu::details-content {
+        block-size: 0;
+        overflow-y: clip;
+        opacity: 0;
+        transition:
+            block-size 0.5s var(--ease-out),
+            opacity 0.4s,
+            content-visibility 0.5s allow-discrete;
+    }
+
+    .faq__menu[open]::details-content {
+        block-size: auto;
+        opacity: 1;
+    }
+}
+
+.faq__answer {
+    padding: 0 clamp(36px, 1.8rem + 2.2vw, 80px) clamp(18px, 0.8rem + 1.4vw, 40px);
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.faq__title {
+    display: flex;
+    font-weight: 400;
+    font-size: clamp(16px, 0.364rem + 2.71vw, 40px);
+    line-height: 117%;
+    color: var(--white-color);
+    text-align: start;
+}
+
+.faq__question {
+    flex: 1;
+    transition: color var(--transition-time), transform 0.4s var(--ease-out);
+}
+
+@media (any-hover: hover) {
+    .faq__menu:hover .faq__question {
+        transform: translateX(6px);
+    }
+}
+
+.summary__icon {
+    position: relative;
+    flex-shrink: 0;
+    display: flex;
+    font-size: clamp(14px, 0.5rem + 1.5vw, 26px);
+    font-weight: 500;
+    justify-content: center;
+    align-items: center;
+    background: #24242d;
+    width: clamp(28px, 1.136rem + 1.55vw, 48px);
+    height: clamp(28px, 1.136rem + 1.55vw, 48px);
+    border-radius: 50%;
+    pointer-events: none;
+    user-select: none;
+    isolation: isolate;
+    transition: transform 0.5s var(--ease-spring), box-shadow 0.4s;
+}
+
+.summary__icon::after {
+    position: absolute;
+    content: "";
+    inset: 0;
+    background: linear-gradient(149.53deg, #6ba758 21.14%, #23503d 81.17%);
+    border-radius: 50%;
+    pointer-events: none;
+    transition: opacity var(--transition-time);
+    opacity: 0;
+    z-index: -1;
+}
+
+.faq__menu:hover .summary__icon::after,
+.faq__menu[open] .summary__icon::after {
+    opacity: 1;
+}
+
+.faq__menu[open] .summary__icon {
+    transform: rotate(360deg);
+    box-shadow: 0 0 20px rgba(107, 167, 88, 0.45);
+}
+
+.faq__menu {
+    cursor: pointer;
+}
+
+summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: clamp(15px, 0.558rem + 1.62vw, 40px) 0;
+    gap: clamp(10px, 0.4rem + 0.8vw, 24px);
+    list-style: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+summary::after {
+    content: "";
+    flex-shrink: 0;
+    display: inline-flex;
+    width: clamp(24px, 1.136rem + 1.55vw, 48px);
+    height: clamp(24px, 1.136rem + 1.55vw, 48px);
+    background: url("../../icons/arrow-down.svg") no-repeat center / cover;
+    transition: transform 0.5s var(--ease-out);
+}
+
+.faq__menu:hover summary::after,
+.faq__menu[open] summary::after {
+    background-image: url("../../icons/arrow-open.svg");
+}
+
+.faq__menu[open] summary::after {
+    transform: rotate(180deg);
+}

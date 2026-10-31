@@ -1,0 +1,79 @@
+@font-face {
+    font-family: "Montserrat";
+    src: local("Montserrat-Light"), local("Montserrat Light"),
+        url("../../fonts/Montserrat-Light.woff2") format("woff2");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: local("Montserrat-Regular"), local("Montserrat Regular"),
+        url("../../fonts/Montserrat-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Gotham Pro";
+    src: local("Gotham-Pro-Bold"), local("Gotham Pro Bold"),
+        url("../../fonts/GothamPro-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Gotham Pro";
+    src: local("Gotham-Pro-Light"), local("Gotham Pro Light"),
+        url("../../fonts/GothamPro-Light.woff2") format("woff2");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Gotham Pro";
+    src: local("Gotham-Pro-Medium"), local("Gotham Pro Medium"),
+        url("../../fonts/GothamPro-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Gotham Pro";
+    src: local("Gotham-Pro-Regular"), local("Gotham Pro Regular"),
+        url("../../fonts/GothamPro-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Bahnschrift";
+    src: local("Bahnschrift Semibold"), local("Bahnschrift-Semibold"), url("../../fonts/bahnschrift-semibold.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: local("Roboto Regular"), local("Roboto-Regular"),
+        url("../../fonts/Roboto-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Latin CT";
+    src: local("Latin CT"), local("Latin-CT"),
+        url("../../fonts/LatinCT-Wide.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}

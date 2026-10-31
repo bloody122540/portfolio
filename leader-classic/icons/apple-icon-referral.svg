@@ -1,0 +1,17 @@
+<svg width="20" height="20" viewBox="0 0 24 24" fill="#ffffff" xmlns="http://www.w3.org/2000/svg">
+    <!-- голова -->
+    <path d="M6 10h12v6a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-6z" />
+    <path d="M6 9.5a6 6 0 0 1 12 0v.5H6v-.5z" />
+    <!-- антенны -->
+    <path d="M8.2 4.1l1.4 1.4-.7.7-1.4-1.4a.5.5 0 0 1 .7-.7z" />
+    <path d="M15.8 4.1l-1.4 1.4.7.7 1.4-1.4a.5.5 0 0 0-.7-.7z" />
+    <!-- глаза (вырезаются через фон) -->
+    <circle cx="9.5" cy="8.2" r="0.9" fill="#000" />
+    <circle cx="14.5" cy="8.2" r="0.9" fill="#000" />
+    <!-- руки -->
+    <rect x="3" y="10" width="2" height="5" rx="1" />
+    <rect x="19" y="10" width="2" height="5" rx="1" />
+    <!-- ноги -->
+    <rect x="8" y="17" width="2" height="4" rx="1" />
+    <rect x="14" y="17" width="2" height="4" rx="1" />
+</svg>

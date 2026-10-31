@@ -1,0 +1,755 @@
+<!doctype html>
+<html class="page" lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0E0E12" />
+    <title>Leader Classic</title>
+    <script>document.documentElement.classList.add('is-loading');</script>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="preload" href="./fonts/GothamPro-Bold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="./fonts/GothamPro-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="./CSS/index.css" />
+    <link rel="icon" href="./icons/favicon-icon.svg" type="image/svg+xml" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+    <script src="./JS/index.js" type="module"></script>
+    <script src="./JS/time.js" type="module"></script>
+    <script src="./JS/scroll.js" type="module"></script>
+    <script src="./JS/slider.js" type="module"></script>
+    <script src="./JS/mask-phone.js" type="module"></script>
+    <script src="./JS/animations.js" type="module"></script>
+</head>
+
+<body class="page__body">
+    <header class="header">
+        <div class="container header__container">
+            <div class="header__logo-wrapper">
+                <button class="header__burger burger" type="button" aria-label="Открыть меню" aria-expanded="false"
+                    aria-controls="header__menu">
+                    <svg class="burger__menu" aria-hidden="true">
+                        <use class="burger__menu-burger" href="./icons/burger-menu.svg#burger" width="16" height="16">
+                        </use>
+                        <use class="burger__menu-cross" href="./icons/burger-menu.svg#cross" width="16" height="16">
+                        </use>
+                    </svg>
+                </button>
+                <a href="#" class="logo header__logo" aria-label="Leader Classic — на главную">
+                    <img class="logo__img" src="./icons/logo.svg" width="52" height="66" alt="">
+                    <span class="logo__name" aria-hidden="true">LEADER<br>CLASSIC</span>
+                </a>
+            </div>
+            <div class="header__select-wrapper">
+                <div class="header__select">
+                    <span class="select__flag" aria-hidden="true"></span>
+                    <select class="select__input" name="country-selector" id="country-selector"
+                        aria-label="Язык сайта">
+                        <option value="RU">RU</option>
+                        <option value="EN">EN</option>
+                        <option value="FR">FR</option>
+                    </select>
+                    <img class="select__img select__arrow" src="./icons/arrow.svg" width="22" height="22" alt="">
+                </div>
+            </div>
+            <nav class="menu header__menu" id="header__menu" aria-label="Главное меню">
+                <ul class="menu__list">
+                    <li class="menu__item">
+                        <a class="menu__link" href="#pricing-plans"><span class="menu__link-text">Тарифы</span></a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" href="#Bonus"><span class="menu__link-text">Бонус</span></a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" href="#Referral"><span class="menu__link-text">Реферальная</span></a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" href="#Contacts"><span class="menu__link-text">Контакты</span></a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="header__button">
+                <a class="button__form button" href="#">Войти</a>
+                <a class="button__score button" href="#Contacts">Открыть счёт</a>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <div class="container section__container">
+            <section class="section__time" aria-label="Розыгрыш">
+                <picture class="section__gift">
+                    <source srcset="./images/gift.webp" type="image/webp">
+                    <img class="section__gift-img" src="./images/gift.png" width="50" height="50" alt="">
+                </picture>
+                <div class="section__text">
+                    <p class="section__title">Станьте миллионером с Leader Classic</p>
+                    <p class="text__little">Откройте счет, инвестируйте в фонды Leader Classic и получите шанс выиграть
+                        один из 100&nbsp;000&nbsp;000&nbsp;₽</p>
+                </div>
+                <div class="section__timer" id="section__timer" role="timer" aria-label="До окончания розыгрыша">
+                    <span class="timer__unit"><span class="timer__num days" id="days">00</span><span
+                            class="timer__letter">д</span></span>
+                    <span class="timer__sep" aria-hidden="true">:</span>
+                    <span class="timer__unit"><span class="timer__num" id="hours">00</span><span
+                            class="timer__letter">ч</span></span>
+                    <span class="timer__sep" aria-hidden="true">:</span>
+                    <span class="timer__unit"><span class="timer__num" id="minutes">00</span><span
+                            class="timer__letter">м</span></span>
+                    <span class="timer__sep" aria-hidden="true">:</span>
+                    <span class="timer__unit"><span class="timer__num" id="seconds">00</span><span
+                            class="timer__letter">с</span></span>
+                </div>
+            </section>
+        </div>
+        <section class="hero" id="pricing-plans">
+            <div class="container">
+                <div class="hero__container">
+                    <div class="hero__aside-wrapper">
+                        <h1 class="hero__title">ТОП-5 акций<br>с доходностью до <span class="nowrap">10-30%</span><br>уже
+                            в 2022 году</h1>
+                        <img class="hero__arrow" src="./icons/Arrow-button.svg" width="42" height="156" alt=""
+                            aria-hidden="true">
+                        <ul class="hero__items">
+                            <li class="hero__list">Открытие брокерского счета за 5 минут без визита в офис</li>
+                            <li class="hero__list">Доступ к ценным бумагам с любого устройства</li>
+                            <li class="hero__list">Поддержка в чате 24/7</li>
+                        </ul>
+                        <div class="hero__button">
+                            <a class="hero__download button" href="#"><span class="hero__download-text">Скачать ТОП-5
+                                    акций</span>
+                                <picture>
+                                    <source srcset="./images/file.webp" type="image/webp">
+                                    <img class="download__file" src="./images/file.png" width="123" height="118"
+                                        alt="">
+                                </picture>
+                            </a>
+                            <a class="hero__score" href="#Contacts">Открыть счёт</a>
+                        </div>
+                        <div class="hero__investors">
+                            <img class="hero__image-one" src="./images/investor-png/investor1.png" width="70"
+                                height="70" alt="Инвестор девушка">
+                            <img class="hero__image-two" src="./images/investor-png/investor2.png" width="70"
+                                height="70" alt="Инвестор мужчина">
+                            <img class="hero__image-tree" src="./images/investor-png/investor3.png" width="70"
+                                height="70" alt="Инвестор мужчина">
+                            <p class="hero__text">Сейчас инвестируют<br>100 000+ пользователей</p>
+                        </div>
+                        <picture class="hero__img-wrapper">
+                            <source srcset="./images/Hand-iPhone-12-Pro.webp" width="824" height="1411"
+                                type="image/webp">
+                            <img class="hero__img" src="./images/Hand-iPhone-12-Pro.png" width="824" height="1411"
+                                fetchpriority="high" alt="Рука с iPhone и приложением Leader Classic">
+                        </picture>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="catalog">
+            <div class="container">
+                <div class="catalog__inner">
+                    <h2 class="catalog__title medium-title">Ваши деньги<br>способны на большее</h2>
+                    <p class="catalog__text">Сколько бы вы заработали, инвестируй <span
+                            class="catalog__text-accent">100&nbsp;000&nbsp;₽</span> год назад?</p>
+                    <div class="catalog__carts">
+                        <article class="carts__tesla">
+                            <picture class="carts__img"><img class="img__tesla" src="./icons/catalog__carts/tesla.svg"
+                                    loading="lazy" width="125" height="41" alt="Tesla"></picture>
+                            <p class="tesla__text-percentages">+83.97%</p>
+                            <p class="tesla__text-ruble">+72.000₽</p>
+                        </article>
+                        <article class="carts__amazon">
+                            <picture class="carts__img"><img class="img__amazon" src="./icons/catalog__carts/amazon.svg"
+                                    loading="lazy" width="92" height="69" alt="Amazon"></picture>
+                            <p class="tesla__text-percentages">+4.11%</p>
+                            <p class="tesla__text-ruble">+72.000₽</p>
+                        </article>
+                        <article class="carts__apple">
+                            <picture class="carts__img"><img class="img__apple" src="./icons/catalog__carts/apple.svg"
+                                    loading="lazy" width="61" height="61" alt="Apple"></picture>
+                            <p class="tesla__text-percentages">+26.36%</p>
+                            <p class="tesla__text-ruble">+72.000₽</p>
+                        </article>
+                        <article class="carts__yandex">
+                            <picture class="carts__img"><img class="img__yandex" src="./icons/catalog__carts/yandex.svg"
+                                    loading="lazy" width="93" height="36" alt="Яндекс"></picture>
+                            <p class="tesla__text-percentages">+17.19%</p>
+                            <p class="tesla__text-ruble">+72.000₽</p>
+                        </article>
+                        <article class="carts__facebook">
+                            <picture class="carts__img"><img class="img__facebook"
+                                    src="./icons/catalog__carts/facebook.svg" loading="lazy" width="123" height="67"
+                                    alt="Facebook"></picture>
+                            <p class="tesla__text-percentages">+31.32%</p>
+                            <p class="tesla__text-ruble">+72.000₽</p>
+                        </article>
+                        <article class="carts__microsoft">
+                            <picture class="carts__img"><img class="img__microsoft"
+                                    src="./icons/catalog__carts/microsoft.svg" loading="lazy" width="122" height="28"
+                                    alt="Microsoft"></picture>
+                            <p class="tesla__text-percentages">+38.99%</p>
+                            <p class="tesla__text-ruble">+72.000₽</p>
+                        </article>
+                    </div>
+                    <p class="catalog__text">И еще более 10 000 других ценных бумаг доступно <span
+                            class="catalog__text-accent">в каталоге</span></p>
+                    <a class="catalog__button button-background" href="#">Получить каталог</a>
+                </div>
+            </div>
+        </section>
+        <section class="instruments">
+            <div class="container">
+                <div class="instruments__inner">
+                    <h2 class="instruments__title medium-title">Большой выбор инструментов</h2>
+                    <div class="instrument__carts">
+                        <article class="carts__forex">
+                            <picture class="instrument__carts-img"><img class="instrument__images"
+                                    src="./icons/instruments-icon/forex.svg" loading="lazy" alt="" width="140"
+                                    height="140">
+                            </picture>
+                            <h3 class="instrument__carts-title">Forex</h3>
+                            <p class="instrument__carts-text">Trade 70 major, minor &amp; exotic currency pairs with
+                                competitive trading conditions.</p>
+                        </article>
+                        <article class="carts__metals">
+                            <picture class="instrument__carts-img"><img class="instrument__images"
+                                    src="./icons/instruments-icon/metals.svg" loading="lazy" alt="" width="140"
+                                    height="140">
+                            </picture>
+                            <h3 class="instrument__carts-title">Metals</h3>
+                            <p class="instrument__carts-text">Trade metal commodities such as Gold, Silver &amp;
+                                Platinum.</p>
+                        </article>
+                        <article class="carts__indices">
+                            <picture class="instrument__carts-img"><img class="instrument__images"
+                                    src="./icons/instruments-icon/indices.svg" loading="lazy" alt="" width="140"
+                                    height="140">
+                            </picture>
+                            <h3 class="instrument__carts-title">Indices</h3>
+                            <p class="instrument__carts-text">Trade Major and Minor Index CFDs Spot and Futures from
+                                around the globe.</p>
+                        </article>
+                        <article class="carts__crypto">
+                            <picture class="instrument__carts-img"><img class="instrument__images"
+                                    src="./icons/instruments-icon/cripto.svg" loading="lazy" alt="" width="140"
+                                    height="140">
+                            </picture>
+                            <h3 class="instrument__carts-title">Cryptocurrencies</h3>
+                            <p class="instrument__carts-text">Trade Bitcoin, Ether, Doge &amp; more crypto &amp; altcoin
+                                CFDs</p>
+                        </article>
+                        <article class="carts__shares">
+                            <picture class="instrument__carts-img"><img class="instrument__images"
+                                    src="./icons/instruments-icon/shares.svg" loading="lazy" alt="" width="140"
+                                    height="140">
+                            </picture>
+                            <h3 class="instrument__carts-title">Shares</h3>
+                            <p class="instrument__carts-text">Hundreds of public companies from the US, UK, France &amp;
+                                Germany available to trade.</p>
+                        </article>
+                        <article class="carts__energies">
+                            <picture class="instrument__carts-img"><img class="instrument__images"
+                                    src="./icons/instruments-icon/energies.svg" loading="lazy" alt="" width="140"
+                                    height="140">
+                            </picture>
+                            <h3 class="instrument__carts-title">Energies</h3>
+                            <p class="instrument__carts-text">Discover opportunities on UK &amp; US Crude Oil, as well
+                                as Natural Gas Spot and Future CFDs.</p>
+                        </article>
+                    </div>
+                    <a class="instrument__icon" href="#" aria-label="Поддержка">
+                        <img class="instrument__icon-help" src="./icons/instruments-icon/support.svg" width="70"
+                            height="70" alt="">
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="investment">
+            <div class="container">
+                <div class="investment__inner">
+                    <h2 class="investment__title medium-title">Инвестиции доступные каждому</h2>
+                    <p class="investment__text">Простой сервис с подсказками и <br> поддержкой 24/7 на каждом этапе</p>
+                    <div class="investment__carts">
+                        <article class="investment__carts-one">
+                            <header class="investment__carts-header">ШАГ 1<span class="investment__carts-number"
+                                    aria-hidden="true">1</span>
+                            </header>
+                            <h3 class="investment__carts-text">Заполнить регистрационную анкету</h3>
+                            <p class="investment__carts-footer">Нужно указать основные данные о себе: имя, номер
+                                телефона, e-mail и пароль для входа.</p>
+                        </article>
+                        <article class="investment__carts-two">
+                            <header class="investment__carts-header">ШАГ 2<span class="investment__carts-number"
+                                    aria-hidden="true">2</span>
+                            </header>
+                            <h3 class="investment__carts-text">Внести деньги на счет</h3>
+                            <p class="investment__carts-footer">Вы можете использовать несколько платежных систем для
+                                пополнения депозита, включая систему MidexPay и кошелек Bitcoin.</p>
+                        </article>
+                        <article class="investment__carts-tree">
+                            <header class="investment__carts-header">ШАГ 3<span class="investment__carts-number"
+                                    aria-hidden="true">3</span>
+                            </header>
+                            <h3 class="investment__carts-text">Приступить к онлайн-трейдингу</h3>
+                            <p class="investment__carts-footer">Сразу после пополнения депозита торговля через
+                                веб-терминал или мобильную платформу будет доступна.</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="bonus" id="Bonus">
+            <div class="container">
+                <div class="bonus__inner">
+                    <h2 class="bonus__title medium-title"><span class="bonus__text-background"
+                            aria-hidden="true">БОНУС</span><span>Каждый достоин</span>
+                        <span>второго шанса</span>
+                    </h2>
+                    <p class="bonus__text">Купите свои первые акции без риска, мы вернем<br>вам 100$ на счет в случае
+                        проигрыша</p>
+                    <div class="bonus__button">
+                        <a class="bonus__button-bonus button-background" href="#">Получить бонус</a>
+                        <a class="bonus__open" href="#">Открыть демо-счёт</a>
+                    </div>
+                </div>
+            </div>
+            <div class="bonus__img" aria-hidden="true">
+                <picture class="bonus__img-left">
+                    <source srcset="./images/Santa.webp" type="image/webp">
+                    <img src="./images/Santa.png" width="3724" height="2430" loading="lazy" alt="">
+                </picture>
+                <picture class="bonus__img-right">
+                    <source srcset="./images/Santa.webp" type="image/webp">
+                    <img src="./images/Santa.png" width="3724" height="2430" loading="lazy" alt="">
+                </picture>
+                <picture class="bonus__img-gift">
+                    <source srcset="./images/two-gift.webp" type="image/webp">
+                    <img src="./images/two-gift.png" width="1211" height="1805" loading="lazy" alt="">
+                </picture>
+            </div>
+        </section>
+        <section class="customers">
+            <div class="container">
+                <div class="customers__inner">
+                    <h2 class="customers__title medium-title"><span>100 000+ клиентов уже</span><span>инвестируют с
+                            нами</span></h2>
+                    <div class="customers__carts">
+                        <article class="customers__carts-planet customers__carts-style">
+                            <img class="customers__carts-logo" src="./icons/costumers-icon/planet.svg" loading="lazy"
+                                width="48" height="48" alt="">
+                            <h3 class="customers__carts-title">Представительство компании в Европе</h3>
+                            <p class="customers__carts-text">В разных странах мира компания открывает собственные
+                                представительства.</p>
+                            <footer class="customers__carts-footer">
+                                <a class="customers__carts-footer-text" href="#">Подробнее
+                                    <svg class="customers__carts-footer-img" width="21" height="8" aria-hidden="true">
+                                        <use href="./icons/costumers-icon/arrow-right-icon.svg#arrow"></use>
+                                    </svg>
+                                </a>
+                            </footer>
+                        </article>
+                        <article class="customers__carts-cart customers__carts-style">
+                            <svg class="customers__carts-logo" width="48" height="48" viewBox="0 0 48 48"
+                                aria-hidden="true">
+                                <use href="./icons/costumers-icon/card.svg"></use>
+                            </svg>
+                            <h3 class="customers__carts-title">Мгновенный ввод и вывод средств</h3>
+                            <p class="customers__carts-text">0% комиссия с депозита</p>
+                            <footer class="customers__carts-footer">
+                                <a class="customers__carts-footer-text" href="#">Подробнее
+                                    <svg class="customers__carts-footer-img" width="21" height="8" aria-hidden="true">
+                                        <use href="./icons/costumers-icon/arrow-right-icon.svg#arrow"></use>
+                                    </svg>
+                                </a>
+                            </footer>
+                        </article>
+                        <article class="customers__carts-person customers__carts-style">
+                            <img class="customers__carts-logo" src="./icons/costumers-icon/person.svg" loading="lazy"
+                                width="47" height="47" alt="">
+                            <h3 class="customers__carts-title">Кредитное плечо до 1:1000</h3>
+                            <footer class="customers__carts-footer">
+                                <a class="customers__carts-footer-text" href="#">Подробнее
+                                    <svg class="customers__carts-footer-img" width="21" height="8" aria-hidden="true">
+                                        <use href="./icons/costumers-icon/arrow-right-icon.svg#arrow"></use>
+                                    </svg>
+                                </a>
+                            </footer>
+                        </article>
+                        <article class="customers__carts-clock customers__carts-style">
+                            <img class="customers__carts-logo" src="./icons/costumers-icon/clock.svg" loading="lazy"
+                                width="44" height="44" alt="">
+                            <h3 class="customers__carts-title">Время выполнения заказа - 30 мс</h3>
+                            <p class="customers__carts-text">Средний показатель по отрасли - 500 мс</p>
+                            <footer class="customers__carts-footer">
+                                <a class="customers__carts-footer-text" href="#">Подробнее
+                                    <svg class="customers__carts-footer-img" width="21" height="8" aria-hidden="true">
+                                        <use href="./icons/costumers-icon/arrow-right-icon.svg#arrow"></use>
+                                    </svg>
+                                </a>
+                            </footer>
+                        </article>
+                        <article class="customers__carts-tools customers__carts-style">
+                            <img class="customers__carts-logo" src="./icons/costumers-icon/tools.svg" loading="lazy"
+                                width="39" height="39" alt="">
+                            <h3 class="customers__carts-title">250 торговых инструментов</h3>
+                            <p class="customers__carts-text">Валютные пары, акции, металлы, индексы, облигации</p>
+                            <footer class="customers__carts-footer">
+                                <a class="customers__carts-footer-text" href="#">Подробнее
+                                    <svg class="customers__carts-footer-img" width="21" height="8" aria-hidden="true">
+                                        <use href="./icons/costumers-icon/arrow-right-icon.svg#arrow"></use>
+                                    </svg>
+                                </a>
+                            </footer>
+                        </article>
+                        <article class="customers__carts-dollar customers__carts-style">
+                            <svg class="customers__carts-logo" width="40" height="40" viewBox="0 0 40 40"
+                                aria-hidden="true">
+                                <use href="./icons/costumers-icon/dollar.svg"></use>
+                            </svg>
+                            <h3 class="customers__carts-title">Счета в евро, рублях, долларах США</h3>
+                            <p class="customers__carts-text">Пополните свой счет и сэкономьте на сборах за конвертацию
+                            </p>
+                            <footer class="customers__carts-footer">
+                                <a class="customers__carts-footer-text" href="#">Подробнее
+                                    <svg class="customers__carts-footer-img" width="21" height="8" aria-hidden="true">
+                                        <use href="./icons/costumers-icon/arrow-right-icon.svg#arrow"></use>
+                                    </svg>
+                                </a>
+                            </footer>
+                        </article>
+                        <article class="customers__carts-gift customers__carts-style">
+                            <img class="customers__carts-logo" src="./icons/costumers-icon/gift.svg" loading="lazy"
+                                width="39" height="39" alt="">
+                            <h3 class="customers__carts-title">15% бонус на первый депозит</h3>
+                            <p class="customers__carts-text">Может использоваться в торговле и во время просадки</p>
+                            <footer class="customers__carts-footer">
+                                <a class="customers__carts-footer-text" href="#">Подробнее
+                                    <svg class="customers__carts-footer-img" width="21" height="8" aria-hidden="true">
+                                        <use href="./icons/costumers-icon/arrow-right-icon.svg#arrow"></use>
+                                    </svg>
+                                </a>
+                            </footer>
+                        </article>
+                        <article class="customers__carts-medal customers__carts-style">
+                            <img class="customers__carts-logo" src="./icons/costumers-icon/medal.svg" loading="lazy"
+                                width="39" height="39" alt="">
+                            <h3 class="customers__carts-title">Инновационная торговая платформа МТ5</h3>
+                            <p class="customers__carts-text">Доступно на IOS и Android</p>
+                            <footer class="customers__carts-footer">
+                                <a class="customers__carts-footer-text" href="#">Подробнее
+                                    <svg class="customers__carts-footer-img" width="21" height="8" aria-hidden="true">
+                                        <use href="./icons/costumers-icon/arrow-right-icon.svg#arrow"></use>
+                                    </svg>
+                                </a>
+                            </footer>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="briefcase">
+            <div class="container">
+                <div class="briefcase__inner">
+                    <div class="briefcase__slider">
+                        <div class="arc-wrap" aria-hidden="true">
+                            <svg class="briefcase__slider-svg" viewBox="0 0 660 330">
+                                <defs>
+                                    <linearGradient id="arcGradient" gradientUnits="objectBoundingBox" x1="0" y1="0"
+                                        x2="1" y2="0" gradientTransform="rotate(66.94 0.5 0.5)">
+                                        <stop offset="30.14%" stop-color="#405548" />
+                                        <stop offset="66.41%" stop-color="#6adb83" />
+                                    </linearGradient>
+                                    <filter id="arcGlowBlur" x="-50%" y="-50%" width="200%" height="200%">
+                                        <feGaussianBlur stdDeviation="14" result="blur" />
+                                    </filter>
+                                </defs>
+                                <path d="M 13 330 A 317 317 0 0 1 647 330" fill="none" stroke="#303030"
+                                    stroke-width="26" stroke-linecap="round" />
+                                <path id="arcGlow" d="M 13 330 A 317 317 0 0 1 647 330" fill="none"
+                                    stroke="url(#arcGradient)" stroke-width="42" stroke-linecap="round"
+                                    filter="url(#arcGlowBlur)" opacity="0.75" />
+                                <path id="arcFill" d="M 13 330 A 317 317 0 0 1 647 330" fill="none"
+                                    stroke="url(#arcGradient)" stroke-width="26" stroke-linecap="round" />
+                            </svg>
+                        </div>
+                        <div class="briefcase__wrapper-top">
+                            <p class="briefcase__slider-text-top">Доходность</p>
+                            <div class="briefcase__slider-text-middle">
+                                <span class="slider-text-before">до</span>
+                                <output class="value-label" id="valueLabel" for="riskRange">0%</output>
+                            </div>
+                            <p class="briefcase__slider-text-lower" id="riskLabel" aria-live="polite">Низкий риск</p>
+                            <div class="briefcase__range">
+                                <input class="input" id="riskRange" type="range" min="0" max="100" value="25"
+                                    step="1" aria-label="Уровень риска">
+                            </div>
+                            <div class="briefcase__radio" role="radiogroup" aria-label="Способ управления">
+                                <label class="briefcase__radio-item">
+                                    <span class="custom-radio">
+                                        <input type="radio" name="choice" id="manage" value="manage">
+                                        <span class="checkmark"></span>
+                                    </span>
+                                    <span class="briefcase__radio-text">Управляю деньгами сам</span>
+                                </label>
+                                <label class="briefcase__radio-item">
+                                    <span class="custom-radio">
+                                        <input type="radio" name="choice" id="trust" value="trust">
+                                        <span class="checkmark"></span>
+                                    </span>
+                                    <span class="briefcase__radio-text">Доверяю управление</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <article class="briefcase__wrapper">
+                        <h2 class="briefcase__title">Подберите индивидуальный инвестиционный портфель</h2>
+                        <p class="briefcase__text">Покупайте российские и иностранные акции, облигации, валюту и другие
+                            продукты в простом и удобном мобильном приложении для iOS и Android</p>
+                        <a class="briefcase__button button-background" href="#">Получить портфель</a>
+                    </article>
+                </div>
+                <div class="briefcase__info">
+                    <article class="briefcase__carts">
+                        <h3 class="briefcase__carts-title">60 000</h3>
+                        <p class="briefcase__carts-text">Активных инвесторов</p>
+                    </article>
+                    <article class="briefcase__carts">
+                        <h3 class="briefcase__carts-title">150+</h3>
+                        <p class="briefcase__carts-text">Торговых инструментов</p>
+                    </article>
+                    <article class="briefcase__carts">
+                        <h3 class="briefcase__carts-title">183 000 USD</h3>
+                        <p class="briefcase__carts-text">Финансовый результат одного из инвесторов</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section class="referral">
+            <div class="container">
+                <div class="referral__inner">
+                    <article class="referral__article">
+                        <h2 class="referral__title medium-title">Инвестируйте с телефона</h2>
+                        <p class="referral__text">Покупайте российские и иностранные акции, облигации, валюту и другие
+                            продукты в простом и удобном мобильном приложении для iOS и Android.</p>
+                    </article>
+                    <picture class="referral__picture">
+                        <source srcset="./images/investment-screen.webp" type="image/webp">
+                        <img class="referral__img" width="2104" height="1378" src="./images/investment screen.png"
+                            loading="lazy" alt="Экран приложения с инвестициями">
+                    </picture>
+                </div>
+                <div class="referral__program" id="Referral">
+                    <picture class="referral__program-images">
+                        <source srcset="./images/two-iPhone12ProMax.webp" type="image/webp">
+                        <img src="./images/two iPhone12ProMax.png" width="1880" height="1022" loading="lazy"
+                            alt="Два iPhone 12 Pro Max с приложением">
+                    </picture>
+                    <article class="referral__program-article">
+                        <h2 class="referral__program-title medium-title">Инвестируйте<br>с телефона</h2>
+                        <p class="referral__program-text">Покупайте российские и иностранные акции, облигации, валюту и
+                            другие продукты в простом и удобном мобильном приложении для iOS и Android.</p>
+                        <div class="referral__link">
+                            <a class="referral__ios" href="#"><svg class="referral__ios-img" viewBox="0 0 24 24"
+                                    aria-hidden="true">
+                                    <use href="./icons/sprite.svg#ios"></use>
+                                </svg><span>Скачать для IOS</span></a>
+                            <a class="referral__android" href="#"><svg class="referral__android-img"
+                                    viewBox="0 0 24 24" aria-hidden="true">
+                                    <use href="./icons/sprite.svg#android"></use>
+                                </svg><span>Скачать для Android</span></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section class="faq">
+            <div class="container">
+                <div class="faq__inner">
+                    <div class="faq__questions">
+                        <h2 class="questions__title medium-title">Мне только спросить</h2>
+                        <p class="questions__text">Собрали в подсказках ответы на популярные вопросы об инвестициях и
+                            сервисе</p>
+                        <a class="questions__button button-background" href="#">Получить консультацию</a>
+                    </div>
+                    <div class="faq__wrapper">
+                        <details class="faq__menu" name="faq" open>
+                            <summary class="faq__title"><span class="summary__icon" aria-hidden="true">?</span><span
+                                    class="faq__question">Есть ли плата за обслуживание?</span></summary>
+                            <p class="questions__text faq__answer">Далеко-далеко за словесными горами в стране гласных, и
+                                согласных живут рыбные тексты.</p>
+                        </details>
+                        <details class="faq__menu" name="faq">
+                            <summary class="faq__title"><span class="summary__icon" aria-hidden="true">?</span><span
+                                    class="faq__question">Как вывести деньги со счёта?</span></summary>
+                            <p class="questions__text faq__answer">Далеко-далеко за словесными горами в стране гласных, и
+                                согласных живут рыбные тексты.</p>
+                        </details>
+                        <details class="faq__menu" name="faq">
+                            <summary class="faq__title"><span class="summary__icon" aria-hidden="true">?</span><span
+                                    class="faq__question">Какие налоги?</span></summary>
+                            <p class="questions__text faq__answer">Далеко-далеко за словесными горами в стране гласных, и
+                                согласных живут рыбные тексты.</p>
+                        </details>
+                        <details class="faq__menu" name="faq">
+                            <summary class="faq__title"><span class="summary__icon" aria-hidden="true">?</span><span
+                                    class="faq__question">Где хранятся деньги?</span></summary>
+                            <p class="questions__text faq__answer">Далеко-далеко за словесными горами в стране гласных, и
+                                согласных живут рыбные тексты.</p>
+                        </details>
+                        <details class="faq__menu" name="faq">
+                            <summary class="faq__title"><span class="summary__icon" aria-hidden="true">?</span><span
+                                    class="faq__question">Как открыть счёт?</span></summary>
+                            <p class="questions__text faq__answer">Далеко-далеко за словесными горами в стране гласных, и
+                                согласных живут рыбные тексты.</p>
+                        </details>
+                        <details class="faq__menu" name="faq">
+                            <summary class="faq__title"><span class="summary__icon" aria-hidden="true">?</span><span
+                                    class="faq__question">Как пополнить счёт?</span></summary>
+                            <p class="questions__text faq__answer">Далеко-далеко за словесными горами в стране гласных, и
+                                согласных живут рыбные тексты.</p>
+                        </details>
+                        <details class="faq__menu" name="faq">
+                            <summary class="faq__title"><span class="summary__icon" aria-hidden="true">?</span><span
+                                    class="faq__question">Что купить?</span></summary>
+                            <p class="questions__text faq__answer">Далеко-далеко за словесными горами в стране гласных, и
+                                согласных живут рыбные тексты.</p>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="contacts" id="Contacts">
+            <div class="container">
+                <div class="contacts__inner">
+                    <h2 class="contacts__title medium-title">Оставьте заявку на открытие счёта</h2>
+                    <div class="contacts__article">
+                        <article class="contacts__cards">
+                            <header class="contacts__article-header">
+                                <div class="contacts__cards-logo-file"><span class="contacts__img-number">1</span>
+                                    <svg class="contacts__cards-file" width="44" height="44" viewBox="0 0 44 44"
+                                        aria-hidden="true">
+                                        <use href="./icons/file-icon.svg"></use>
+                                    </svg>
+                                </div>
+                                <div class="arrow-right" aria-hidden="true"><svg class="circle" width="10" height="10">
+                                        <use href="./icons/arrow-right-contacts.svg#circle"></use>
+                                    </svg><span class="border-inline"></span><svg class="arrow" width="11" height="11">
+                                        <use href="./icons/arrow-right-contacts.svg#arrow"></use>
+                                    </svg>
+                                </div>
+                            </header>
+                            <h3 class="contacts__cards-title">Заполните заявку онлайн</h3>
+                            <p class="contacts__cards-text">Необходимо: имя, номер телефона, e-mail и пароль для
+                                входа.</p>
+                        </article>
+                        <article class="contacts__cards">
+                            <header class="contacts__article-header">
+                                <div class="contacts__cards-logo"><span class="contacts__img-number">2</span>
+                                    <svg class="contacts__cards-card" width="48" height="48" viewBox="0 0 48 48"
+                                        aria-hidden="true">
+                                        <use href="./icons/costumers-icon/card.svg"></use>
+                                    </svg>
+                                </div>
+                                <div class="arrow-right" aria-hidden="true"><svg class="circle" width="10" height="10">
+                                        <use href="./icons/arrow-right-contacts.svg#circle"></use>
+                                    </svg><span class="border-inline"></span><svg class="arrow" width="11" height="11">
+                                        <use href="./icons/arrow-right-contacts.svg#arrow"></use>
+                                    </svg>
+                                </div>
+                            </header>
+                            <h3 class="contacts__cards-title">Откроем счет за 5 минут</h3>
+                            <p class="contacts__cards-text">Вы можете использовать несколько платежных систем для
+                                пополнения депозита, включая систему MidexPay и кошелек Bitcoin.</p>
+                        </article>
+                        <article class="contacts__cards">
+                            <header class="contacts__article-header">
+                                <div class="contacts__cards-logo"><span class="contacts__img-number">3</span>
+                                    <svg class="contacts__cards-dollar" width="40" height="40" viewBox="0 0 40 40"
+                                        aria-hidden="true">
+                                        <use href="./icons/costumers-icon/dollar.svg"></use>
+                                    </svg>
+                                </div>
+                                <div class="arrow-right three" aria-hidden="true"><svg class="circle" width="10"
+                                        height="10">
+                                        <use href="./icons/arrow-right-contacts.svg#circle"></use>
+                                    </svg><span class="border-inline"></span><svg class="arrow" width="11" height="11">
+                                        <use href="./icons/arrow-right-contacts.svg#arrow"></use>
+                                    </svg>
+                                </div>
+                            </header>
+                            <h3 class="contacts__cards-title">Пополните счёт и начните инвестировать</h3>
+                            <p class="contacts__cards-text">Сразу после пополнения депозита будет доступна торговля
+                                через веб-терминал или мобильную платформу.</p>
+                        </article>
+                    </div>
+                    <form class="contacts__form" action="#" method="post">
+                        <fieldset>
+                            <label for="name" class="label">Ваше имя</label>
+                            <input class="contacts__form-label" id="name" name="name" type="text"
+                                autocomplete="name" placeholder="Ваше имя:" required>
+                        </fieldset>
+                        <fieldset>
+                            <label for="phone" class="label">Телефон</label>
+                            <input class="contacts__form-label" id="phone" inputmode="numeric" maxlength="18"
+                                name="phone" type="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required>
+                        </fieldset>
+                        <fieldset>
+                            <label for="email" class="label">Email</label>
+                            <input class="contacts__form-label" id="email" name="email" type="email"
+                                autocomplete="email" placeholder="Email:" required>
+                        </fieldset>
+                        <button class="contacts__button button-background" type="submit">Оставить заявку</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__social">
+                    <a href="#" class="logo header__logo" aria-label="Leader Classic — на главную">
+                        <img class="logo__img" src="./icons/logo.svg" width="52" height="66" alt="">
+                        <span class="logo__name" aria-hidden="true">LEADER<br>CLASSIC</span>
+                    </a>
+                    <div class="footer__social-img">
+                        <a href="#" aria-label="Facebook">
+                            <svg class="footer__social-facebook" width="50" height="50" viewBox="0 0 50 50"
+                                aria-hidden="true">
+                                <use href="./icons/footer-icon/sprite-icon-social.svg#facebook"></use>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Instagram">
+                            <svg class="footer__social-instagram" width="50" height="50" viewBox="0 0 50 50"
+                                aria-hidden="true">
+                                <use href="./icons/footer-icon/sprite-icon-social.svg#instagram"></use>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="ВКонтакте">
+                            <svg class="footer__social-vk" width="50" height="50" viewBox="0 0 50 50"
+                                aria-hidden="true">
+                                <use href="./icons/footer-icon/sprite-icon-social.svg#vk"></use>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="YouTube">
+                            <svg class="footer__social-youtube" width="50" height="50" viewBox="0 0 50 50"
+                                aria-hidden="true">
+                                <use href="./icons/footer-icon/sprite-icon-social.svg#youtube"></use>
+                            </svg>
+                        </a>
+                    </div>
+                    <a class="footer__social-text" href="#">Политика передачи данных</a>
+                </div>
+                <div class="footer__contacts">
+                    <p class="footer__contacts-text">Звонок по России бесплатный</p>
+                    <a class="footer__contacts-number" href="tel:+74952121671">8 (495) 212-16-71</a>
+                    <a class="footer__contacts-button" href="#">Перезвоните мне</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

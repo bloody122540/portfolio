@@ -1,0 +1,105 @@
+.investment {
+    margin-bottom: clamp(80px, 3.18rem + 7.77vw, 200px);
+}
+
+.investment__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.investment__title {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.investment__text {
+    text-align: center;
+    font-weight: 400;
+    font-size: clamp(14px, 0.7rem + 0.7vw, 25px);
+    line-height: 158%;
+    color: var(--white-color);
+    margin-bottom: clamp(40px, 1.893rem + 2.59vw, 80px);
+}
+
+.investment__carts {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
+    gap: clamp(50px, 1.517rem + 6.86vw, 156px);
+}
+
+.investment__carts article {
+    position: relative;
+    display: grid;
+    grid-template-rows: auto clamp(100px, 5.355rem + 3.82vw, 159px) auto;
+    width: clamp(280px, 15.983rem + 6.47vw, 380px);
+    margin-bottom: 20px;
+}
+
+.investment__carts-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    font-weight: 400;
+    font-size: clamp(14px, 0.769rem + 0.45vw, 21px);
+    line-height: 130%;
+    letter-spacing: 0.08em;
+    color: var(--white-color);
+    margin-bottom: 20px;
+}
+
+.investment__carts-header::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(98, 186, 127, 0.7), rgba(98, 186, 127, 0));
+    transform-origin: left;
+}
+
+.investment__carts-text {
+    width: 100%;
+    font-weight: 500;
+    font-size: clamp(22px, 1.178rem + 0.84vw, 35px);
+    line-height: 130%;
+    color: var(--white-color);
+    margin-bottom: 29px;
+}
+
+.investment__carts-footer {
+    width: 100%;
+    font-weight: 400;
+    font-size: clamp(15px, 0.831rem + 0.45vw, 22px);
+    line-height: 159%;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.investment__carts-number {
+    position: absolute;
+    bottom: 0;
+    right: -15%;
+    transform: translateY(60%);
+    font-weight: 700;
+    font-size: clamp(150px, 7.1rem + 9.71vw, 300px);
+    line-height: 117%;
+    letter-spacing: 0;
+    background: var(--liner-green);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    pointer-events: none;
+    opacity: 0.5;
+    z-index: -1;
+    transition: opacity 0.6s var(--ease-out);
+}
+
+@media (any-hover: hover) {
+    .investment__carts article:hover .investment__carts-number {
+        opacity: 0.9;
+    }
+}

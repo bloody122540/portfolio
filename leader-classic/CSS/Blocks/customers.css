@@ -1,0 +1,163 @@
+.customers__inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: clamp(80px, 3rem + 5vw, 143px);
+}
+
+.customers__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: clamp(20px, 0.34rem + 3.88vw, 80px);
+}
+
+.customers__carts {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(10px, 0.443rem + 0.78vw, 22px);
+    width: 100%;
+}
+
+@media (width <=1260px) {
+    .customers__carts {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (width <=992px) {
+    .customers__carts {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (width <=600px) {
+    .customers__carts {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+.customers__carts-style {
+    --mx: 50%;
+    --my: 0%;
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    padding: clamp(28px, 1.2rem + 1.6vw, 52px) clamp(22px, 1rem + 0.6vw, 29px) 30px clamp(24px, 1rem + 1.4vw, 44px);
+    gap: clamp(16px, 0.8rem + 0.8vw, 29px);
+    min-height: clamp(260px, 13rem + 8vw, 442px);
+    border-radius: 16px;
+    background: var(--card-bg);
+    overflow: hidden;
+    transition:
+        box-shadow 0.5s var(--ease-out),
+        transform 0.5s var(--ease-out);
+}
+
+.customers__carts-style::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(420px circle at var(--mx) var(--my), rgba(98, 186, 127, 0.16), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.5s;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.customers__carts-style::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    background: radial-gradient(300px circle at var(--mx) var(--my), rgba(98, 186, 127, 0.9), rgba(255, 255, 255, 0.06) 70%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+    opacity: 0.35;
+    transition: opacity 0.5s;
+    pointer-events: none;
+}
+
+@media (any-hover: hover) {
+    .customers__carts-style:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--green-glow);
+    }
+
+    .customers__carts-style:hover::before,
+    .customers__carts-style:hover::after {
+        opacity: 1;
+    }
+
+    .customers__carts-style:hover .customers__carts-logo {
+        transform: scale(1.12) rotate(-6deg);
+        filter: drop-shadow(0 0 14px rgba(98, 186, 127, 0.6));
+    }
+}
+
+.customers__carts-logo {
+    display: block;
+    color: var(--green-accent);
+    transition: transform 0.5s var(--ease-spring), filter 0.5s;
+}
+
+.customers__carts-title {
+    font-weight: 500;
+    font-size: clamp(18px, 1.004rem + 0.52vw, 26px);
+    line-height: 125%;
+    color: var(--white-color);
+}
+
+.customers__carts-text {
+    font-weight: 400;
+    font-size: clamp(14px, 0.754rem + 0.52vw, 22px);
+    line-height: 140%;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.customers__carts-footer {
+    display: flex;
+    justify-content: end;
+    align-items: flex-end;
+    width: 100%;
+    margin-top: auto;
+}
+
+.customers__carts-footer-text {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 400;
+    font-size: clamp(14px, 0.8rem + 0.3vw, 18px);
+    line-height: 157%;
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.3);
+    text-underline-offset: 4px;
+    text-decoration-skip-ink: none;
+    color: var(--white-color);
+    cursor: pointer;
+    transition: color var(--transition-time), text-decoration-color var(--transition-time);
+}
+
+.customers__carts-footer-img {
+    transition: transform 0.4s var(--ease-out);
+}
+
+@media (any-hover: hover) {
+    .customers__carts-footer-text:hover {
+        color: var(--green-accent);
+        text-decoration-color: currentColor;
+    }
+
+    .customers__carts-footer-text:hover .customers__carts-footer-img {
+        transform: translateX(6px);
+    }
+}

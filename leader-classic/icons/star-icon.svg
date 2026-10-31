@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 21"
+    overflow="visible">
+    <defs>
+        <!-- Плавный градиент заливки от светло-желтого к оранжевому -->
+        <linearGradient id="sparkleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FFF3B0" />
+            <stop offset="50%" stop-color="#FFC107" />
+            <stop offset="100%" stop-color="#FF6600" />
+        </linearGradient>
+
+        <!-- Фильтр свечения (3 слоя, создают плавный переход от желтого к оранжевому) -->
+        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+            <!-- Внутреннее яркое свечение (желтое) -->
+            <feDropShadow dx="0" dy="0" stdDeviation="0.5" flood-color="#FFD700" flood-opacity="1" />
+            <!-- Среднее свечение (янтарное) -->
+            <feDropShadow dx="0" dy="0" stdDeviation="1.5" flood-color="#FFB300" flood-opacity="0.8" />
+            <!-- Внешнее широкое свечение (оранжевое) -->
+            <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#FF8C00" flood-opacity="0.5" />
+        </filter>
+    </defs>
+
+    <!-- Группа со звездами и примененным свечением -->
+    <g filter="url(#glow)">
+        <!-- Маленькая звезда слева внизу -->
+        <path d="M 5 12 Q 5 16 9 16 Q 5 16 5 20 Q 5 16 1 16 Q 5 16 5 12 Z" fill="url(#sparkleGrad)" />
+
+        <!-- Средняя звезда слева вверху -->
+        <path d="M 4 1 Q 4 4 7 4 Q 4 4 4 7 Q 4 4 1 4 Q 4 4 4 1 Z" fill="url(#sparkleGrad)" />
+
+        <!-- Большая звезда справа -->
+        <path d="M 13 2 Q 13 10 21 10 Q 13 10 13 18 Q 13 10 5 10 Q 13 10 13 2 Z"
+            fill="url(#sparkleGrad)" />
+    </g>
+</svg>

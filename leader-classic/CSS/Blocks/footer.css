@@ -1,0 +1,138 @@
+.footer {
+    position: relative;
+    background: #202020;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    width: 80%;
+    height: 100%;
+    transform: translateY(-55%);
+    background: var(--glow-green);
+    border-radius: 100%;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.6;
+}
+
+.footer__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    padding: clamp(50px, 2rem + 4vw, 100px) 0;
+}
+
+@media(width <=480px) {
+    .footer__inner {
+        flex-direction: column;
+    }
+}
+
+.footer__social {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(15px, 0.755rem + 0.78vw, 27px);
+}
+
+.footer__social-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer__social-img a {
+    display: block;
+    color: var(--white-color);
+    border-radius: 50%;
+    transition: color var(--transition-time), transform 0.4s var(--ease-spring), filter var(--transition-time);
+}
+
+.footer__social-img a svg {
+    display: block;
+    fill: currentColor;
+}
+
+@media (width <=768px) {
+    .footer__social-img a svg {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+@media (any-hover: hover) {
+    .footer__social-img a:hover {
+        color: #4f815c;
+        transform: translateY(-5px) scale(1.08);
+        filter: drop-shadow(0 6px 14px rgba(98, 186, 127, 0.45));
+    }
+}
+
+.footer__social-text {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    font-size: clamp(12px, 0.689rem + 0.26vw, 16px);
+    line-height: 150%;
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.35);
+    text-underline-offset: 4px;
+    text-decoration-skip-ink: none;
+    color: var(--white-color);
+    transition: color var(--transition-time), text-decoration-color var(--transition-time);
+}
+
+.footer__social-text:hover {
+    color: var(--green-accent);
+    text-decoration-color: currentColor;
+}
+
+.footer__contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+}
+
+.footer__contacts-text {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    font-size: clamp(12px, 0.689rem + 0.26vw, 16px);
+    line-height: 150%;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.footer__contacts-number {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: clamp(18px, 1.034rem + 0.39vw, 24px);
+    line-height: 140%;
+    text-align: center;
+    color: var(--white-color);
+    transition: color var(--transition-time), letter-spacing 0.4s var(--ease-out);
+}
+
+.footer__contacts-number:hover {
+    color: #ffbe82;
+    letter-spacing: 0.02em;
+}
+
+.footer__contacts-button {
+    position: relative;
+    font-weight: 500;
+    font-size: clamp(14px, 0.754rem + 0.52vw, 22px);
+    line-height: 159%;
+    color: #000;
+    padding: clamp(10px, 0.504rem + 0.52vw, 18px) clamp(20px, 0.947rem + 1.29vw, 40px);
+    cursor: pointer;
+    background-image: var(--button-gradient);
+    border-radius: var(--border-bh);
+}

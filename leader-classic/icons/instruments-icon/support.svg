@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 70 70" fill="none">
+  <!-- Дуга наушников (внешняя) -->
+  <path d="M22 38 L22 28 Q22 14 35 14 Q48 14 48 28 L48 38"
+        stroke="#FFFFFF" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+
+  <!-- Дуга наушников (внутренняя) -->
+  <path d="M27 38 L27 30 Q27 20 35 20 Q43 20 43 30 L43 38"
+        stroke="#FFFFFF" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+
+  <!-- Левая амбушюра -->
+  <rect x="18" y="30" width="6" height="13" rx="3" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+
+  <!-- Правая амбушюра -->
+  <rect x="46" y="30" width="6" height="13" rx="3" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+
+  <!-- Ножка микрофона -->
+  <path d="M46 43 Q46 50 40 50"
+        stroke="#FFFFFF" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+  <!-- Микрофон (капсула) -->
+  <rect x="30" y="47" width="10" height="6" rx="3" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+
+  <!-- Текст Support -->
+  <text x="35" y="66" text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="9" fill="#FFFFFF" letter-spacing="0.2">Support</text>
+</svg>
